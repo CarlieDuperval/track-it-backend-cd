@@ -8,3 +8,8 @@ salesRouter.post("/sales", async (req, res) => {
   const idSales = await createSales(sales);
   res.status(200).send(idSales.toString);
 });
+
+salesRouter.get("/sales", async (req, res) => {
+  const salesReport = await getAllSales();
+  res.status(200).send(salesReport);
+});
