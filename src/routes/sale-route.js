@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { createSales , updateSales } from "../services/salesService.js";
+import { createSales , updateSales } from "../services/sales-service.js";
 export const salesRouter = Router();
 
 salesRouter.post("/sales", async (req, res) => {

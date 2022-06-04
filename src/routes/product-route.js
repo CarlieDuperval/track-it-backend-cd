@@ -14,7 +14,7 @@ productRouter.post("/products", async (req, res) => {
   try {
     const product = req.body;
     const id = await createProduct(product);
-    res.status(200).send(id.toString);
+    res.status(201).send(id.toString);
   } catch (error) {
     res.status(500).send(error);
   }
@@ -29,7 +29,7 @@ productRouter.get("/products", async (req, res) => {
   }
 });
 
-productRouter.get("/products/:name", async (res, req) => {
+productRouter.get("/products/:id", async (res, req) => {
   try {
     const { name } = req.params;
     const product = await getProduct(name);
