@@ -1,4 +1,4 @@
-import { getProductCollection } from "../gateway/connectdb.js";
+import { getProductCollection } from "../gateway/connectDb.js";
 
 export const createProduct = async (product) => {
   const col = await getProductCollection();

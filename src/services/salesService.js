@@ -1,4 +1,4 @@
-import { getSalesCollection } from "../gateway/connectdb.js";
+import { getSalesCollection } from "../gateway/connectDb.js";
 
 // tbc / (sales) or (producT)
 export const createSales = async (sales) => {

@@ -1,24 +1,29 @@
-import { getProductCollection } from "../gateway/connectdb.js";
+import { Router } from "express";
+import {
+  createProduct,
+  getAllProducts,
+  getProduct,
+  updateProduct,
+} from "../services/productService.js";
 
-export const createProduct = async (product) => {
-  const col = await getProductCollection();
-  const { insertedId } = await col.insertOne(product);
-  return insertedId;
-};
+productRouter.post("/sales", async (req, res) => {
+  const product = req.body;
+  const id = await createProduct(product);
+  res.status(200).send(id.toString);
+});
 
-export const getProduct = async (name) => {
-  const col = await getProductCollection();
-  const product = await col.findOne({ name });
-  return product;
-};
+productRouter.get("/sales", async (req, res) => {
+  const productList = await getAllProducts();
+  res.status(200).send(productList);
+});
 
-export const getAllProducts = async () => {
-  const col = await getProductCollection();
-  const allProducts = await col.find({}).toArray();
-  return allProducts;
-};
+productRouter.get("/sales/:name", async (res, req) => {
+  const { name } = req.params;
+  const product = await getProduct(name);
+  res.status(200).send(product);
+});
 
-export const updateProduct = async (name, updateObj) => {
-  const col = await getProductCollection();
-  await col.updateOne({ name }, { $set: updateObj });
-};
+productRouter.patch("/sales/:name", async (res, req) => {
+  const { name, updateObj } = await updateProduct(name, updateObj);
+  res.status(200).send("Product updated");
+});
