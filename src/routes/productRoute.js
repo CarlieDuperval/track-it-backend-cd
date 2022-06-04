@@ -6,6 +6,8 @@ import {
   updateProduct,
 } from "../services/productService.js";
 
+export const productRouter = Router();
+
 productRouter.post("/sales", async (req, res) => {
   const product = req.body;
   const id = await createProduct(product);
