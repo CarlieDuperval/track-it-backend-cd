@@ -1,5 +1,3 @@
-"srt".split();
-
 export const createProductFromFile = async (fileName) => {
   //read the file
   const data = fs.readFileSync(fileName, "utf-8").toString();

@@ -1,9 +1,9 @@
-import { MongoClient } from "mongodb";
+import { MongoClient } from "mongodb"; // connect using mongo instance
 
 export const getDb = async () => {
   const client = new MongoClient(process.env.MONGO_URL);
   await client.connect();
-  return client.db("sales-tracking"); // data base
+  return client.db("TrackIT"); // data base
 };
 
 export const getSalesCollection = async () => {

@@ -1,15 +1,23 @@
+import { ObjectId } from "mongodb";
 import { getSalesCollection } from "../gateway/connectDb.js";
 
-// tbc / (sales) or (producT)
-export const createSales = async (sales) => {
+export const createSale = async (sale) => {
   const col = await getSalesCollection();
-  const { insertedId } = await col.insertOne(sales);
-  return insertedId;
+  const { insertedId } = await col.insertOne(sale);
+  sale.id = insertedId;
+  return sale;
+};
+export const createMultipleSales = async (sales) => {
+  const col = await getSalesCollection();
+  const { insertedId } = await col.insertMany(sales);
+  sales.id = insertedId;
+  return sales;
 };
 
-export const getOneSales = async (name) => {
+export const getSaleById = async (id) => {
   const col = await getSalesCollection();
-  const onsSales = await col.findOne({ name });
+  const sale = await col.findOne({ _id: new ObjectId(id) });
+  return sale;
 };
 
 export const getAllSales = async () => {
@@ -18,7 +26,7 @@ export const getAllSales = async () => {
   return allSales;
 };
 
-export const updateSales = async (name, updateObj) => {
+export const updateSales = async (id, updateObj) => {
   const col = await getSalesCollection();
-  await col.updateOne({ name }, { $set: updateObj });
+  await col.updateOne({ _id: new ObjectId(id) }, { $set: updateObj });
 };
