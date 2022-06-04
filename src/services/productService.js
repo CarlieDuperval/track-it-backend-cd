@@ -21,7 +21,7 @@ export const createProductFromFile = async (fileName) => {
   }
   await createMultipleProducts(getProductCollection);
 };
-
+// the csv file to add: sales statistic for final project           ????????
 export const creatProductFromFile = "sales2021.csv".then((res) =>
   console.log("created")
 );
