@@ -8,12 +8,13 @@ export const createSale = async (sale) => {
   return sale;
 };
 export const createMultipleSales = async (sales) => {
-  const col = await getSalesCollection();
-  const { insertedId } = await col.insertMany(sales);
-  sales.id = insertedId;
-  return sales;
+  try {
+    const col = await getSalesCollection();
+    await col.insertMany(sales);
+  } catch (error) {
+    console.error(error);
+  }
 };
-
 export const getSaleById = async (id) => {
   const col = await getSalesCollection();
   const sale = await col.findOne({ _id: new ObjectId(id) });

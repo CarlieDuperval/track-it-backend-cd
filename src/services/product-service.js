@@ -1,27 +1,5 @@
 import { getProductCollection } from "../gateway/connectDb.js";
 
-export const createProductFromFile = async (fileName) => {
-  //read the file
-  const data = fs.readFileSync(fileName, "utf-8").toString();
-  // Put each line into an array of string
-  const fileArray = data.split("\n");
-  // create a container for each bulk insert
-  const getProductCollection = [];
-  for (const line of fileArray) {
-    // turn each line into and array
-    let productData = line.split(",");
-    //check for data inside the array
-    if (!productData[0] || productData[0] === "id") {
-      console.log("This is not id", productData[0]);
-      continue;
-    }
-    //Add new array to container for bulk insert
-    productData[0] = Number.parseInt(productData[0]);
-    getProductCollection.push(productData);
-  }
-  await createMultipleProducts(getProductCollection);
-};
-
 export const createProduct = async (product) => {
   const col = await getProductCollection();
   const { insertedId } = await col.insertOne(product);

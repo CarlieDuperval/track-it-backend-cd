@@ -10,7 +10,9 @@ app.use(express.json());
 app.use(cors());
 
 app.use(productRouter);
+//app.use('/sales', salesRouter)
 app.use(salesRouter);
+//app.use('/product', productRouter)
 
 app.listen(3000, () => {
   console.log("Listening on Port: 3000");

@@ -6,9 +6,9 @@ import {
   getProductByFilter,
   getProductById,
   updateProduct,
-} from "../services/productService.js";
+} from "../services/product-service.js";
 
-export const productRouter = Router();
+export const productRouter = Router(); // express allows me to create my router
 
 productRouter.post("/products", async (req, res) => {
   try {
@@ -57,7 +57,7 @@ productRouter.get("/products/:id", async (res, req) => {
     res.send(500).send(error);
   }
 });
-
+// need to change field names
 productRouter.get("/products", async (res, req) => {
   const { name, productCategory, cost, salePrice, date } = req.quey;
   const filter = { name, productCategory, cost, salePrice, date };
