@@ -12,7 +12,7 @@ export const createProductFromFile = async (fileName) => {
     let productData = line.split(","); // each element separate with comma is a index in the array
     //check for data inside the array
     if (!productData[0] || productData[0] === "NameDescription") {
-      console.log("This is not id", productData[0]);
+      console.log("This is not NameDescription", productData[0]);
       continue;
     }
     //Add new array to container for bulk insert
