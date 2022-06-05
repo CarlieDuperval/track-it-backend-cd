@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node .",
+    "sales:import": "node ./src/data-import/sales-import.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

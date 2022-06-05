@@ -17,7 +17,7 @@ export const createSalesFromFile = async (fileName) => {
     }
     let newSale = {
       year: 2021,
-      name: salesData[0],
+      productName: salesData[0],
       productCategory: salesData[1],
       cost: Number.parseFloat(salesData[2]),
       price: Number.parseFloat(salesData[3]),
