@@ -7,6 +7,7 @@ export const createSale = async (sale) => {
   sale.id = insertedId;
   return sale;
 };
+
 export const createMultipleSales = async (sales) => {
   try {
     const col = await getSalesCollection();
@@ -15,6 +16,7 @@ export const createMultipleSales = async (sales) => {
     console.error(error);
   }
 };
+
 export const getSaleById = async (id) => {
   const col = await getSalesCollection();
   const sale = await col.findOne({ _id: new ObjectId(id) });

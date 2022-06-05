@@ -1,4 +1,7 @@
 import { MongoClient } from "mongodb"; // connect using mongo instance
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const getDb = async () => {
   const client = new MongoClient(process.env.MONGO_URL);
