@@ -16,11 +16,12 @@ export const createSalesFromFile = async (fileName) => {
       continue;
     }
     let newSale = {
-      year: 2021,
+      year: 2022,
       productName: salesData[0],
       productCategory: salesData[1],
       cost: Number.parseFloat(salesData[2]),
       price: Number.parseFloat(salesData[3]),
+      // remove the first ( and replace it to - for each column qty
       qtySold: {
         jan:
           Number.parseFloat(salesData[4].replace("(", "-").replace(")", "")) ||
@@ -57,7 +58,7 @@ export const createSalesFromFile = async (fileName) => {
           0,
         dec:
           Number.parseFloat(salesData[15].replace("(", "-").replace(")", "")) ||
-          0, // remove the first ( and replace it to -
+          0,
         total:
           Number.parseFloat(salesData[16].replace("(", "-").replace(")")) || 0,
       },
@@ -66,4 +67,4 @@ export const createSalesFromFile = async (fileName) => {
   }
   await createMultipleSales(sales);
 };
-createSalesFromFile("sales-2021-940.tsv");
+createSalesFromFile("Sales Tracking 2022 - Full.tsv");
