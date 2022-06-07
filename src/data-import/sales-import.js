@@ -9,7 +9,7 @@ export const createSalesFromFile = async (fileName) => {
   const sales = [];
   for (const line of fileArray) {
     // turn each line into and array
-    let salesData = line.split(","); // each element separate with comma is a index in the array
+    let salesData = line.split("\t"); // each element separate with comma is a index in the array
     //check for data inside the array
     if (!salesData[0] || salesData[0] === "NameDescription") {
       console.log("This is NameDescription", salesData[0]);
@@ -66,4 +66,4 @@ export const createSalesFromFile = async (fileName) => {
   }
   await createMultipleSales(sales);
 };
-createSalesFromFile("Sales.csv");
+createSalesFromFile("sales-2021-940.tsv");
