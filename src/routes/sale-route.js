@@ -45,4 +45,3 @@ salesRouter.patch("/sales/:id", async (req, res) => {
     console.error(error);
   }
 });
-//

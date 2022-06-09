@@ -1,12 +1,10 @@
 import { createMultipleSales } from "../services/sales-service.js";
 import fs from "fs";
+
 export const createSalesFromFile = async (fileName) => {
-  //read the file
-  const data = fs.readFileSync(fileName, "utf-8").toString();
-  // Put each line into an array of string
-  const fileArray = data.split("\n");
-  // create a container for each bulk insert
-  const sales = [];
+  const data = fs.readFileSync(fileName, "utf-8").toString(); //read the file
+  const fileArray = data.split("\n"); // Put each line into an array of string
+  const sales = []; // create a container for each bulk insert
   for (const line of fileArray) {
     // turn each line into and array
     let salesData = line.split("\t"); // each element separate with comma is a index in the array
