@@ -1,3 +1,4 @@
+import functions from "firebase-functions";
 import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
@@ -14,6 +15,7 @@ app.use(salesRouter);
 //app.use(productRouter);
 //app.use('/sales', salesRouter)
 
-app.listen(3030, () => {
-  console.log("Listening on Port: 3030");
-});
+// app.listen(3030, () => {
+//   console.log("Listening on Port: 3030");
+// });
+export const api = functions.https.onRequest(app);
