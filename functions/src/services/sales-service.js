@@ -5,7 +5,8 @@ export const createSale = async (sale) => {
   const col = await getSalesCollection();
   const { insertedId } = await col.insertOne(sale);
   sale.id = insertedId;
-x};
+  x;
+};
 
 export const createMultipleSales = async (sales) => {
   try {
