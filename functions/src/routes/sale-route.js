@@ -9,14 +9,7 @@ export const salesRouter = Router();
 
 salesRouter.post("/sales", async (req, res) => {
   const { year, productName, productCategory, cost, price, qtySold } = req.body;
-  if (
-    !year ||
-    !productName ||
-    !productCategory ||
-    !cost ||
-    !price ||
-    !qtySold
-  ) {
+  if (!year || !productName || !productCategory || !cost || !price) {
     res.status(401).send("Invalid Request");
   }
   const sale = {
