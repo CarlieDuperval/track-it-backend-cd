@@ -1,11 +1,11 @@
 import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 
-dotenv.config();
+dotenv.config(); // Loads .env file contents into process.env
 
 export const getDb = async () => {
   const client = new MongoClient(process.env.MONGO_URL);
-  await client.connect();
+  await client.connect(); // Connect to the URL
   return client.db("TrackIT");
 };
 

@@ -1,6 +1,8 @@
 import { createMultipleSales } from "../services/sales-service.js";
 import fs from "fs";
 
+
+// create a method to upload to tsv file
 export const createSalesFromFile = async (fileName) => {
   const data = fs.readFileSync(fileName, "utf-8").toString(); //read the file
   const fileArray = data.split("\n"); // Put each line into an array of string
@@ -19,7 +21,7 @@ export const createSalesFromFile = async (fileName) => {
       productCategory: salesData[1],
       cost: Number.parseFloat(salesData[2]),
       price: Number.parseFloat(salesData[3]),
-      // remove the first ( and replace it to - for each column qty
+      // remove the first parenthes"("" and replace it to - for each column qty and remove the second parenthese ")""
       qtySold: {
         jan:
           Number.parseFloat(salesData[4].replace("(", "-").replace(")", "")) ||
