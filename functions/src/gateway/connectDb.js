@@ -11,9 +11,6 @@ export const getDb = async () => {
 
 export const getSalesCollection = async () => {
   const db = await getDb();
-  return db.collection("sales");
+  return db.collection("sales"); // if !E, create a new col
 };
-// export const getProductCollection = async () => {
-//   const db = await getDb();
-//   return db.collection("products");
-// };
+
