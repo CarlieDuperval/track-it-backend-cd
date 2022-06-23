@@ -1,5 +1,5 @@
 import { createMultipleSales } from "../services/sales-service.js";
-import fs from "fs";
+import fs from "fs"; // fs modules enables interacting with the file system
 
 
 // create a method to upload to tsv file
@@ -19,7 +19,7 @@ export const createSalesFromFile = async (fileName) => {
       year: 2022,
       productName: salesData[0],
       productCategory: salesData[1],
-      cost: Number.parseFloat(salesData[2]),
+      cost: Number.parseFloat(salesData[2]), // convert the srting to a floating point 
       price: Number.parseFloat(salesData[3]),
       // remove the first parenthes"("" and replace it to - for each column qty and remove the second parenthese ")""
       qtySold: {
