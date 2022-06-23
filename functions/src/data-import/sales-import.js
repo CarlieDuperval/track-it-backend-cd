@@ -2,7 +2,7 @@ import { createMultipleSales } from "../services/sales-service.js";
 import fs from "fs"; // fs modules enables interacting with the file system
 
 
-// create a method to upload to tsv file
+// create a method to upload to tsv file: script
 export const createSalesFromFile = async (fileName) => {
   const data = fs.readFileSync(fileName, "utf-8").toString(); //read the file
   const fileArray = data.split("\n"); // Put each line into an array of string
