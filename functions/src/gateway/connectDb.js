@@ -1,4 +1,4 @@
-import { MongoClient } from "mongodb";
+import { MongoClient } from "mongodb"; 
 import dotenv from "dotenv";
 
 dotenv.config(); // Loads .env file contents into process.env
