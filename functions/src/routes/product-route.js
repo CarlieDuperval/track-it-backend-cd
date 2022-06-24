@@ -1,3 +1,5 @@
+// dont need this collection for now
+
 // import { Router } from "express";
 // import {
 //   createProduct,
